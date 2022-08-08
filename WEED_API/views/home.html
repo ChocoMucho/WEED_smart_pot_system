@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <!-- <script type="text/javascript"
+        src="https://www.gstatic.com/charts/loader.js"></script> <script
+        type="text/javascript"> google.charts.load('current',
+        {'packages':['corechart']}); google.charts.setOnLoadCallback(drawChart);
+        function drawChart() { var data = google.visualization.arrayToDataTable([ ['날짜',
+        '온도', '습도'], ['1일', 24, -10], ['2일', 25, -13], ['3일', 23.5, -12], ['4일', 24,
+        -10] ]); var options = { title: '온도 습도 변화', hAxis: {title: '날짜', titleTextStyle:
+        {color: '#333'}}, vAxis: {minValue: 0} }; var chart = new
+        google.visualization.AreaChart(document.getElementById('chart'));
+        chart.draw(data, options); } </script> -->
+    </head>
+    <body>
+        
+        <div class="wrap">
+            <div class="intro">
+                <div class="header">
+                    <ul class="title_area">
+                        <li>
+                            <a href="/home">WEED</a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        {% if user %}
+                            <li>
+                                <a href="auth/logout">LOGOUT</a>
+                            </li>
+                            <li>
+                                <a href="/pot">POT ADD</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a href="/">LOGIN</a>
+                            </li>
+                            <li>
+                                <a href="/register">SIGN UP</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% if user %}
+                    <div class="intro_text">
+                        <h1>{{user.name}}님</h1>
+                        <h4 class="contents1">환영합니다!</h4>
+                    {% else %}
+                        <div class="login">
+                            <h1>LOGIN</h1>
+                            <form id="form" action="auth/login" method="post">
+                                <div class="int-area">
+                                    <input type="text" name="id" id="id" autocomplete="off" required="required">
+                                    <label for="id">ID</label><br>
+                                </div>
+                                <div class="int-area">
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        id="pw"
+                                        autocomplete="off"
+                                        required="required">
+                                    <label for="pw">PASSWORD</label><br>
+                                </div>
+                                <button id="btn" type="submit">로그인</button>
+                            </form>
+                        </div>
+                        <script>
+                            let id = $('#id');
+                            let pw = $('#pw');
+                            let btn = $('#btn');
+
+                            $(btn).on('click', function () {
+                                if ($(id).val() == "") {
+                                    $(id)
+                                        .next('label')
+                                        .addClass('warning');
+                                    setTimeout(function () {
+                                        $('label').removeClass('warning');
+                                    }, 1500);
+                                } else if ($(pw).val() == "") {
+                                    $(pw)
+                                        .next('label')
+                                        .addClass('warning');
+                                    setTimeout(function () {
+                                        $('label').removeClass('warning');
+                                    }, 1500);
+                                }
+                            });
+                        </script>
+                    </div>
+                {% endif %}
+            </div>
+            <!-- intro end-->
+            <!-- <ul class="amount">
+                {% for pot in pots %}
+                    <li>
+                        <div>
+                            <div class="contents1">
+                                <a href="/pot/detail/{{pot.id}}">아이디</a>
+                            </div>
+                            <div class="contents2">{{pot.id}}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="contents1">
+                                <a href="/pot/detail/{{pot.id}}">화분 이름</a>
+                            </div>
+                            <div class="contents2">{{pot.name}}</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="contents1">
+                                <a href="/pot/detail/{{pot.id}}">식물 이름</a>
+                            </div>
+                            <div class="contents2">{{pot.plant}}</div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul><br> -->
+            <div class="list_wrap">
+                <ul>
+                    {% for pot in pots %}
+                    <li class="item">
+                        <div class="image">사진</div>
+                        <div class="cont">
+                            <strong>{{pot.name}}</strong>
+                            <P>{{pot.id}}</P>
+                            <p>{{pot.plant}}</p>
+                            <a href="/pot/detail/{{pot.id}}">상세정보</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- amount end -->
+            <!-- <div class="main_text"> {% if user %} <div id="chart"></div> {% endif %}
+            </div> -->
+        </div>
+
+        <canvas id="canvas" width="300" height="300"></canvas>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+                    "GLTFLoader" : "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+                }
+                }
+        </script>
+
+        <script type="module">
+            import {GLTFLoader} from 'GLTFLoader';
+            import * as THREE from 'three';
+
+            let scene = new THREE.Scene();
+            let renderer = new THREE.WebGLRenderer({
+                canvas : document.querySelector('#canvas')
+            });
+            
+            let camera = new THREE.PerspectiveCamera(30, 1);
+
+            let loader = new GLTFLoader();
+            loader.load('shiba/scene.gltf', function(gltf){
+                scene.add(gltf.scene);
+                renderer.render(scene, camera);
+            });
+            
+            
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="intro">
+            <div class="header">
+                <ul class="title_area">
+                    <li>
+                        <a href="/home">WEED</a>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li>
+                        <a href="auth/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+                <div class="intro_text">
+                    <div class="setting_main">
+                        <h1>화분 정보</h1><br>
+                            <form id="form" action="pot/update" method="post">
+                                <div class="int-area">
+                                    <input type="text" name="pot_id" id="pot_id" autocomplete="off" required="required">
+                                    <label for="pot_id">화분ID</label><br>
+                                </div>
+                                <div class="int-area">
+                                    <input type="text" name="pot_name" id="pot_name" autocomplete="off" required="required">
+                                    <label for="pot_name">화분 이름</label><br>
+                                </div>
+                                <div class="int-area">
+                                    <input type="text" name="plant_name" id="plant_name" autocomplete="off" required="required">
+                                    <label for="plant_name">식물 이름</label><br>
+                                </div>
+                                <button id="btn" type="submit">설정</button>
+                            </form>
+
+                        <h1>상태 정보</h1><br>
+                            <form id="form" action="pot/set" method="post">
+                                <div class="int-area">
+                                    <input type="number" name="tem" id="tem" min="0" max="30" step="0.5" value="20" autocomplete="off" required="required">
+                                    <label for="tem">온도</label><br>
+                                </div>
+                                <div class="int-area">
+                                    <input type="text" name="hum" id="hum" autocomplete="off" required="required">
+                                    <label for="hum">습도</label><br>
+                                </div>
+                                <button id="btn" type="submit">설정</button>
+                            </form>
+                    </div>
+                    <script>
+                        let pot_id = $('#pot_id');
+                        let tem = $('#tem');
+                        let hum = $('#hum');
+                        let btn = $('#btn');
+
+                        $(btn).on('click', function () {
+                            if ($(pot_id).val() == "") {
+                                $(pot_id)
+                                    .next('label')
+                                    .addClass('warning');
+                                setTimeout(function () {
+                                    $('label').removeClass('warning');
+                                }, 1500);
+                            } else if ($(tem).val() == "") {
+                                $(tem)
+                                    .next('label')
+                                    .addClass('warning');
+                                    setTimeout(function () {
+                                    $('label').removeClass('warning');
+                                }, 1500);
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

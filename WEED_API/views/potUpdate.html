@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="intro">
+                <div class="header">
+                    <ul class="title_area">
+                        <li>
+                            <a href="/home">WEED</a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li>
+                            <a href="/home">HOME</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="amount">
+                    {% for pot in pots %}
+                    <li>
+                        <div>
+                            <div class="contents1"><a href="/pot/detail/{{pot.id}}">화분 이름</a></div>
+                            <div class="contents2">{{pot.name}}</div>
+                        </div>
+                    </li>
+                    {% for status in potStatus%}
+                        {% if status.potId === pot.id %}
+                            <li>
+                                <div>
+                                    <div class="contents1">온도</div>
+                                    <div class="contents2">{{status.temp}}'C</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="contents1">습도</div>
+                                    <div class="contents2">{{status.hum}}%</div>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+<!-- 화분 아이디 : {{pot.id}}<br>
+화분 이름 : {{pot.name}}<br>
+식물 이름 : {{pot.plant}}<br>
+설정 온도 : {{pot.setTem}}<br>
+설정 토양 습도 : {{pot.setHum}}<br> -->
+
+<!-- <form id="form" action="/pot/update/{{pot.id}}" method="post" >
+    <h2>영화 수정</h2><br>
+    화분 이름<input type="text" name="name" value = "{{pot.name}}" placeholder="화분 이름" /><br>
+    
+    식물 이름<input type="text" name="plant" value = "{{pot.plant}}" placeholder="식물 이름" /><br>
+    
+    <button type="submit">수정</button>
+</form> -->
+
+<div class="setting_main">
+    <h1>화분 정보 변경</h1><br>
+        <form id="form" action="/pot/update/{{pot.id}}" method="post">
+            <div class="int-area">
+                <input type="text" name="name" id="pot_name" value="{{pot.name}}" autocomplete="off" required="required">
+                <label for="pot_name">화분 이름</label><br>
+            </div>
+            <div class="int-area">
+                <input type="text" name="plant" id="plant_name" value="{{pot.plant}}" autocomplete="off" required="required">
+                <label for="plant_name">식물 이름</label><br>
+            </div>
+            <button id="btn" type="submit">변경</button>
+        </form><br>
+        <button type="button" onclick="location.href='/pot/delete/{{pot.id}}'">화분 삭제</button>
+
+    <!-- <h1>상태 정보</h1><br>
+        <form id="form" action="pot/set" method="post">
+            <div class="int-area">
+                <input type="number" name="tem" id="tem" min="0" max="30" step="0.5" value="20" autocomplete="off" required="required">
+                <label for="tem">온도</label><br>
+            </div>
+            <div class="int-area">
+                <input type="text" name="hum" id="hum" autocomplete="off" required="required">
+                <label for="hum">습도</label><br>
+            </div>
+            <button id="btn" type="submit">설정</button>
+        </form> -->
+</div>

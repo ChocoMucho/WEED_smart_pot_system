@@ -1,0 +1,493 @@
+/* all */
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin:0px;
+    padding:0px;
+    color: black;
+}
+
+h1{
+    font-size: 48px;
+    font-weight: 100;
+}
+
+.contents1{
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.contents2{
+    font-size:  24px;
+}
+
+.intro{
+    background-image:url("image/pot3.jpeg") ;
+    background-size: 1370px;
+    width: 100%;
+    height: 910px;
+    margin: 0px auto 0px auto; 
+}
+
+.intro::before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.header{
+    display:flex;
+    width:1280px;
+    margin:auto;
+    height: 86px;
+    position: relative;
+    z-index: 2;
+}
+
+.title_area{
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 24px;
+}
+
+.title_area > li > a{
+    color: white;
+    font-size: 35px;
+}
+
+.nav{
+    display:flex;
+    justify-content: flex-end;
+    line-height: 86px;
+    width: calc(1280px - 300px);
+    position: relative;
+    z-index: 2;
+}
+
+.nav > li{
+    margin-left: 84px;
+}
+
+.nav > li > a{
+    color: white;
+}
+
+.intro_text{
+    width: 100%;
+    margin: 150px auto 0px auto;
+    text-align: center;
+    z-index: 2;
+}
+
+.intro_text > h1,
+.intro_text > h4{
+    color: white;
+}
+
+/* .login_main{
+    background-image:url("image/pot.jpeg") ;
+    background-size: 1370px;
+    width:100%;
+    height:654px;
+} */
+
+/* login */
+
+.login{
+    width: 400px;
+    position: relative;
+    margin: 120px auto 231px auto;
+    text-align: center;
+    z-index: 2;
+}
+
+.login > h1{
+    font-size: 42px;
+    color: white;
+    text-align: center;
+}
+
+.int-area {
+    width: 400px;
+    position: relative;
+}
+
+.int-area input{
+    width: 100%;
+    padding: 20px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #999;
+    font-size: 18px;
+    color: white;
+    outline: none;
+}
+
+.int-area label{
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 18px;
+    color: white;
+    transition: all .5s ease;
+}
+
+.int-area label.warning {
+    color: red !important;
+    animation:  warning .3s ease;
+    animation-iteration-count: 3;
+}
+
+@keyframes warning {
+    0% {transform: translateX(-8px);}
+    25% {transform: translateX(8px);}
+    50% {transform: translateX(-8px);}
+    75% {transform: translateX(8px);}
+}
+
+.int-area input:focus + label,
+.int-area input:valid + label {
+    top: -2px;
+    font-size: 13px;
+    color: #166cea;
+}
+
+.login > form > button{
+    width: 100%;
+    height: 50px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* amount */
+
+.amount{
+    position: relative;
+    top: 80px;
+    display: flex;
+    width: 1280px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    margin: auto;
+    z-index: 2;
+}
+
+.amount > li{
+    flex: 1;
+    height: 132px;
+}
+
+.amount > li > div{
+    text-align: center;
+    margin-top: 37px;
+    height: 57px;
+}
+
+.amount >li:not(:last-child) > div{
+    border-right: 1px solid #E1E1E1;
+}
+
+/* main_text */
+
+.main_text{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin: 150px auto 231px auto;
+    background: #f1f2f3;
+}
+
+/*chart*/
+
+.chart {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    z-index: 2;
+}
+
+/*register*/
+
+.register{
+    width: 400px;
+    position: relative;
+    margin: 100px auto 231px auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.register > h1 {
+    font-size: 42px;
+    color: white;
+    text-align: center;
+}
+
+.register > form > button {
+    width: 100%;
+    height: 50px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/*setting*/
+
+.setting_main{
+    top: -165px;
+    width: 400px;
+    position: relative;
+    margin: 231px auto 231px auto;
+    text-align: center;
+    z-index: 2;
+}
+
+.setting_main > h1{
+    font-size: 42px;
+    color: white;
+    text-align: center;
+}
+
+.setting_main > form > button{
+    width: 100%;
+    height: 50px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.setting_main > button {
+    width: 100%;
+    height: 50px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/*main_text0*/
+
+.main_text0 {
+    width: 100%;
+    height: 601px;
+    margin-top: -12px;
+    z-index: 2;
+}
+
+.main_text0 > h1{
+    padding-top: 100px;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    z-index: 2;
+}
+
+.main_text0 > h2{
+    padding-top: 0px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.main_text1 {
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
+
+.icons {
+    display: flex;
+    width: 800px;
+    height: 210px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.icons > li {
+    flex: 1;
+    /* margin-top: -10px; */
+    /* background: white; */
+    height: 210px;
+    text-align: center;
+}
+
+.icons > li:not(:last-child){
+    border-right: 1px solid #E1E1E1;
+}
+
+.icon {
+    display: flex;
+    padding-top: 10px;
+    width: 100px;
+    height: 20px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contents1_bold{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: white;
+}
+
+.contents3 {
+    font-size: 30px;
+    width: 220px;
+    margin: auto;
+    margin-top: 40px;
+    letter-spacing: -1px;
+    color: white;
+}
+
+.change {
+    width: 100px;
+    height: 30px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 15px;
+    line-height: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 131, 87, 0.499);
+}
+
+.change:hover{
+    background-color: rgba(51, 170, 1);
+    cursor: pointer;
+}
+
+.change2 {
+    width: 70px;
+    height: 20px;
+    background: rgb(51, 180, 73);
+    color: white;
+    font-size: 12px;
+    line-height: 10px;
+    margin: auto;
+    margin-top: 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 131, 87, 0.499);
+}
+
+.change2:hover{
+    background-color: rgba(51, 170, 1);
+    cursor: pointer;
+}
+
+/*list_wrap*/
+
+.list_wrap{
+    position: relative;
+    width: 1200px;
+    padding: 100px;
+    margin: 20px auto;
+    z-index: 2;
+}
+
+.list_wrap > ul, li {
+    list-style: none;
+}
+
+.list_wrap > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.list_wrap ul {
+    font-size: 0;
+}
+.list_wrap .item {
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    margin-left: 5%;
+    margin: 30px 50px 0px 30px;
+    background: #fff;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.list_wrap .item:nth-child(-n+3) {
+    margin-top: 0px;
+}
+
+.list_wrap .item:nth-child(3n-2) {
+    margin-top: 0px;
+}
+
+.list_wrap .itme .image {
+    width: 100%;
+    height: 160px;
+    background-image: url("image/pot2.jpeg");
+    background-color: #ddd;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.list_wrap .item .cont {
+    padding: 20px;  
+}
+
+.list_wrap .item strong {
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 36px;
+    letter-spacing: -1px;
+}
+
+.list_wrap .item p {
+    font-size: 13px;
+    letter-spacing:  -1px;
+}
+
+.list_wrap .item a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: rgb(51, 180, 73);
+    font-size: 13px;
+    letter-spacing: -1px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 131, 87, 0.499);
+}
+
+.list_wrap .item a:hover {
+    background-color: rgb(51, 180, 73);
+    cursor: pointer;
+}

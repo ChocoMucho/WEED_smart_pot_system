@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+    <html>
+
+        <head>
+            <title>로그인 후 화면</title>
+        </head>
+
+        <body>
+            <p>
+                {% if user %}
+                    사용자:
+                    {{user.name}}<br>
+                {% else %}
+                    <p>
+                        <form id="form" action="auth/login" method="post">
+                            <input type="text" name="id" placeholder="ID"/><br>
+                            <input type="text" name="password" placeholder="Password"/><br>
+                            <button type="submit">로그인</button>
+                            <br>
+                        </form>
+                    </p>
+
+                {% endif %}
+                <br>
+
+                {% for pot in pots %}
+                    화분 ID:
+                    {{pot.id}}<br>
+                    화분 이름:
+                    {{pot.name}}<br>
+                    {% for status in potStatus%}
+                        {% if status.potId === pot.id %}
+                            온도:{{status.temp}}'C<br>
+                            습도:{{status.hum}}%
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <br><br>
+                {% endfor %}
+            </p>
+            
+            
+        </body>
+
+    </html>

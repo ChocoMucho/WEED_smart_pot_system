@@ -1,0 +1,32 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  height: 75px;
+  color: white;
+  background: #60e77d;
+  font-weight: bold;
+  display: flex;
+
+  align-items: center;
+}
+
+.wrapper{width: 1400px; margin: 0 auto;}                                          
+
+
+h1{float: left; line-height: 75px;}
+h1 a{text-decoration: none; color: white;}
+.menu1{float: right;}
+.menu2{float: right;}
+.menu1 li{float: left; list-style:none;}
+.menu1 a{
+  line-height: 75px; padding:0 15px; display: block; text-decoration: none; color: white;
+}
+.menu2 li{float: left; list-style:none;}
+.menu2 a{line-height: 75px; padding:0 15px; display: block; text-decoration: none; color: white;}
+
+body {
+  padding-top: 75px;
+}

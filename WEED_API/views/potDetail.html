@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="intro">
+                <div class="header">
+                    <ul class="title_area">
+                        <li>
+                            <a href="/home">WEED</a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li>
+                                <a href="/home">HOME</a>
+                            </li>
+                    </ul>
+                </div>
+                <div class="main_text0">
+                    <h1>{{pot.name}}</h1>
+                    <h2>{{pot.plant}}</h2>
+                        <ul class="icon">  
+                    <button type="button" class="change2" onclick="location.href='/pot/update/{{pot.id}}'">
+                            정보 변경</button>
+                        </ul>
+                    <br><br>
+                    <ul class="icons">
+                        <li>
+                            <div class="contents3">현재 온도: {{status.temp}}'C</div>
+                            <div class="contents1_bold">설정 온도: {{pot.setTem}}'C</div>
+                            <button type="button" class="change" onclick="location.href='/pot/set/{{pot.id}}'">
+                            변경</button>
+                        </li>
+                        <li>
+                            <div class="contents3">현재 습도: {{status.hum}}%</div>
+                            <div class="contents1_bold">설정 습도: {{pot.setHum}}%</div>
+                            <button type="button" class="change" onclick="location.href='/pot/set/{{pot.id}}'">
+                            변경</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- <h1>Pot Detail</h1>
+                <p>
+                    <button type="button" onclick="location.href='/pot/update/{{pot.id}}' ">
+                        수정
+                    </button>
+                    화분 :
+                    <br>
+                    식물 이름 :
+                    {{pot.plant}}<br>
+                    설정 온도 :
+                    {{pot.setTem}}<br>
+                    설정 토양 습도 :
+                    {{pot.setHum}}<br>
+                    여기에서 온도랑 토양 습도 설정
+                    <br>
+                    현재 온도 :
+                    {{status.temp}}<br>
+                    현재 토양 습도 :
+                    {{status.hum}}<br>
+                </p> -->
+            </div>
+        </div>
+    </body>
+</html>
