@@ -3,7 +3,7 @@
 ## 데이터베이스
 
 ### 개발
- - host : "sungwon-project-test........rds.amazonaws.com"
+ - host : "sungwon-project-test.c66wldgkg6f0.ap-northeast-2.rds.amazonaws.com"
  - port : 3306
  - database : sungwon
  - user : sungwon
