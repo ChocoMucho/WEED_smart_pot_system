@@ -3,7 +3,7 @@
     "username": "sungwon",
     "password": "sungwon185646",
     "database": "sungwon",
-    "host": "sungwon-project-test.c66wldgkg6f0.ap-northeast-2.rds.amazonaws.com",
+    "host": "sungwon-project-test. ...... .rds.amazonaws.com",
     "dialect": "mysql",
     "timezone": "+09:00",
     "dialectOptions":{
